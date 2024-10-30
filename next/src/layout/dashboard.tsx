@@ -87,7 +87,7 @@ const DashboardLayout = (props: DashboardLayoutProps) => {
       )}
       <main
         className={clsx(
-          "bg-gradient-to-b from-slate-7 to-slate-3",
+          "bg-slate-13",
           leftSettings.desktop && "lg:pl-64",
           props.rightSidebar && layout.showRightSidebar && "lg:pr-64"
         )}

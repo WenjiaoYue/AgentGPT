@@ -26,8 +26,8 @@ const Templates = () => {
       <div className="flex h-full w-full flex-col p-10">
         <FadeIn initialX={-45} initialY={0} delay={0.1}>
           <div>
-            <h1 className="text-4xl font-bold text-slate-12">Templates</h1>
-            <h2 className="text-xl font-thin text-slate-12">
+            <h1 className="text-4xl font-bold text-slate-14">Templates</h1>
+            <h2 className="text-xl font-thin text-slate-14">
               Customizable and ready to deploy agents
             </h2>
           </div>

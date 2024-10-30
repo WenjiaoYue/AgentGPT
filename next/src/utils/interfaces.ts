@@ -24,8 +24,8 @@ export const toApiModelSettings = (modelSettings: ModelSettings, session?: Sessi
 
 export interface RequestBody {
   run_id?: string;
-  model_settings: ApiModelSettings;
-  goal: string;
+  model_settings?: ApiModelSettings;
+  query: string;
   task?: string;
   tasks?: string[];
   last_task?: string;

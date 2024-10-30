@@ -80,7 +80,7 @@ const InsecureSignin = () => {
           }).catch(console.error);
         }}
         className={clsx(
-          "mb-4 mt-4 flex items-center rounded-md bg-slate-12 px-10 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-slate-10 sm:text-base",
+          "mb-4 mt-4 flex items-center rounded-md bg-slate-14 px-10 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-slate-10 sm:text-base",
           !usernameValue && "cursor-not-allowed"
         )}
       >

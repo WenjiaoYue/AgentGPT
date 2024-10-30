@@ -59,7 +59,7 @@ const Dialog: FC<DialogProps> = ({ open, setOpen, ...props }) => {
               >
                 <HeadlessDialog.Title
                   as="h3"
-                  className="flex flex-row items-start px-4 py-3 font-semibold leading-6 text-slate-12"
+                  className="flex flex-row items-start px-4 py-3 font-semibold leading-6 text-slate-14"
                 >
                   {props.title}
                 </HeadlessDialog.Title>

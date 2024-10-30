@@ -23,7 +23,7 @@ module.exports = {
             typography: (theme) => ({
                 DEFAULT: {
                     css: {
-                        color: theme('colors.gray.900'),  // Change color as per your need
+                        color: theme('colors.white.900'),  // Change color as per your need
                         a: {
                             color: theme('colors.blue.500'),  // Change color as per your need
                             '&:hover': {
@@ -34,7 +34,7 @@ module.exports = {
                             color: theme('colors.white'),  // This is where you change your heading color
                         },
                         'b,strong': {
-                            color: theme('colors.gray.500'),  // This is where you change your bold text color
+                            color: theme('colors.white.500'),  // This is where you change your bold text color
                         },
                     },
                 },
@@ -86,10 +86,13 @@ module.exports = {
                     10: "#7E868C",
                     11: "#687076",
                     12: "#11181C",
+                    13: "#25252D",
+                    14: "#fff"
                 },
                 // light mode
                 tremor: {
                     brand: {
+                        intel: "#2D49FF",
                         faint: "#eff6ff", // blue-50
                         muted: "#bfdbfe", // blue-200
                         subtle: "#60a5fa", // blue-400

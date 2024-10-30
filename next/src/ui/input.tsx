@@ -18,13 +18,13 @@ const Input = (props: Props) => {
       {props.label && (
         <label
           htmlFor={props.name}
-          className="flex items-center gap-2 text-sm font-bold leading-6 text-slate-12"
+          className="flex items-center gap-2 text-sm font-bold leading-6 text-slate-14"
         >
           {props.icon}
           <span>{props.label}</span>
 
           {props.type == "range" && (
-            <span className="text-xs font-medium text-slate-12 lg:text-sm">({props.value})</span>
+            <span className="text-xs font-medium text-slate-14 lg:text-sm">({props.value})</span>
           )}
         </label>
       )}
@@ -43,7 +43,7 @@ const Input = (props: Props) => {
             name={props.name}
             id={props.name}
             className={clsx(
-              "placeholder:text-color-tertiary focus:outline-inset block w-full rounded-md border-0 bg-slate-1 p-1.5 text-slate-12 shadow-depth-1 transition-colors sm:text-sm sm:leading-6"
+              "placeholder:text-color-tertiary focus:outline-inset block w-full rounded-md border-0 bg-slate-1 p-1.5 text-slate-14 shadow-depth-1 transition-colors sm:text-sm sm:leading-6"
             )}
             placeholder={props.placeholder}
             value={props.value}

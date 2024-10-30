@@ -58,7 +58,7 @@ const SourceLink = ({ link, index }: LinkInfo) => {
                   onError={addImageFallback}
                 />
                 <p className="line-clamp-1 overflow-ellipsis">{linkMeta.data.hostname}</p>
-                <p className="rounded-full bg-slate-5 px-2 text-slate-12 transition-colors duration-300 group-hover:bg-sky-600 group-hover:text-white">
+                <p className="rounded-full bg-slate-5 px-2 text-slate-14 transition-colors duration-300 group-hover:bg-sky-600 group-hover:text-white">
                   {index + 1}
                 </p>
               </div>
@@ -66,7 +66,7 @@ const SourceLink = ({ link, index }: LinkInfo) => {
           ) : linkMeta.isError ? (
             <div className="flex gap-2">
               <p className="line-clamp-1">{link}</p>
-              <p className="rounded-full bg-slate-5 px-3 text-slate-12">{index + 1}</p>
+              <p className="rounded-full bg-slate-5 px-3 text-slate-14">{index + 1}</p>
             </div>
           ) : null}
         </div>

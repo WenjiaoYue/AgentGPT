@@ -14,7 +14,7 @@ export const DrawerItemButton = (props: DrawerItemProps) => {
     <button
       type="button"
       className={clsx(
-        "cursor-pointer items-center rounded-md text-slate-12 hover:bg-slate-5",
+        "cursor-pointer items-center rounded-md text-slate-14 hover:bg-slate-5",
         props.className
       )}
       onClick={onClick}

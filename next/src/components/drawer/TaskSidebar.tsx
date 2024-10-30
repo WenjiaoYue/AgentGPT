@@ -47,7 +47,7 @@ const TaskSidebar = () => {
       side="right"
       className="border-slate-6s border-l"
     >
-      <div className="flex h-screen flex-col gap-2 text-slate-12">
+      <div className="flex h-screen flex-col gap-2 text-slate-14">
         <div className="flex flex-row items-center gap-1">
           <button
             className="neutral-button-primary rounded-md border-none transition-all"
@@ -104,7 +104,7 @@ const Task = ({ task }: { task: TaskType }) => {
     <FadeIn>
       <div
         className={clsx(
-          "w-full rounded-md bg-slate-1 p-2 text-sm text-slate-12 shadow-depth-1",
+          "w-full rounded-md bg-slate-1 p-2 text-sm text-slate-14 shadow-depth-1",
           isAgentStopped && "opacity-50",
           getMessageContainerStyle(task)
         )}

@@ -39,7 +39,7 @@ const ChatMessage = ({ message }: { message: Message }) => {
     <div
       className={clsx(
         getMessageContainerStyle(message),
-        "my-1 mr-2 rounded-lg bg-slate-1 p-2 text-xs shadow-depth-1 hover:border-[#1E88E5]/40 sm:mr-4 sm:p-3",
+        "my-1 mr-2 rounded-lg bg-slate-1 p-2 text-xs shadow-depth-1 hover:border-[#1E88E5]/40 sm:mr-4 sm:p-3 bg-slate-13",
         "sm:my-1.5 sm:text-sm",
         !isAction(message) && "w-fit max-w-full"
       )}
@@ -57,7 +57,7 @@ const ChatMessage = ({ message }: { message: Message }) => {
             <div className="mr-2 inline-block h-[0.9em]">{getTaskStatusIcon(message, {})}</div>
             <span className="mr-2 flex-1 font-bold">{getMessagePrefix(message)}</span>
             <Button
-              className="justify-end rounded-md text-slate-10 hover:bg-slate-6 hover:text-slate-12"
+              className="justify-end rounded-md text-slate-10 hover:bg-slate-6 hover:text-slate-14"
               onClick={handleCopy}
               aria-label="Copy"
             >

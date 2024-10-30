@@ -59,7 +59,7 @@ const ChatWindow = ({ messages, children, title, chatControls }: ChatWindowProps
   return (
     <div
       className={clsx(
-        "flex h-full w-full max-w-[inherit] flex-1 flex-col overflow-auto text-slate-12 transition-all duration-500"
+        "flex h-full w-full max-w-[inherit] flex-1 flex-col overflow-auto text-slate-14 transition-all duration-500"
       )}
     >
       <HideShow
@@ -82,7 +82,7 @@ const ChatWindow = ({ messages, children, title, chatControls }: ChatWindowProps
         <div
           className={clsx(
             isThinking && !isStopped ? "opacity-100" : "opacity-0",
-            "mr-2 flex flex-row items-center gap-2 p-2 transition duration-300 sm:mr-4",
+            "mr-2 flex flex-row items-center gap-2 p-2 transition text-black duration-300 sm:mr-4",
             "text-xs sm:text-base"
           )}
         >
@@ -90,23 +90,6 @@ const ChatWindow = ({ messages, children, title, chatControls }: ChatWindowProps
           <ImSpinner2 className="animate-spin" />
         </div>
       </div>
-      {chatControls && (
-        <div className="mt-auto flex flex-row gap-2 p-2 pt-0 sm:p-4">
-          <Input
-            small
-            placeholder="Chat with your agent..."
-            value={chatControls.value}
-            onChange={(e) => chatControls?.onChange(e.target.value)}
-          />
-          <Button
-            className="px-1 py-1 sm:px-3 md:py-1"
-            onClick={chatControls?.handleChat}
-            disabled={chatControls.loading}
-          >
-            <FaCommentDots />
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

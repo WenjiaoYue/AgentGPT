@@ -1,13 +1,15 @@
 import { type GetStaticProps, type NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import nextI18NextConfig from "../../next-i18next.config.js";
 import HelpDialog from "../components/dialog/HelpDialog";
 import { SignInDialog } from "../components/dialog/SignInDialog";
 import Chat from "../components/index/chat";
 import Landing from "../components/index/landing";
+import ConfirmGoal from "../components/index/confirmGoal";
+
 import { useAgent } from "../hooks/useAgent";
 import { useAuth } from "../hooks/useAuth";
 import { useSettings } from "../hooks/useSettings";
@@ -40,14 +42,20 @@ const Home: NextPage = () => {
   const agent = useAgentStore.use.agent();
 
   const { session } = useAuth();
+  const { settings } = useSettings();
+
   const nameInput = useAgentInputStore.use.nameInput();
   const setNameInput = useAgentInputStore.use.setNameInput();
   const goalInput = useAgentInputStore.use.goalInput();
   const setGoalInput = useAgentInputStore.use.setGoalInput();
-  const { settings } = useSettings();
 
   const [showSignInDialog, setShowSignInDialog] = React.useState(false);
+  const [showConfirmGoal, setShowConfirmGoal] = React.useState(false);
+  const [goals, setGoals] = useState<{ text: string; isEditing: boolean; }[]>([]);
+
+
   const agentUtils = useAgent();
+  
 
   const goalInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -66,15 +74,24 @@ const Home: NextPage = () => {
 
   const handlePlay = (goal: string) => {
     if (agentLifecycle === "stopped") handleRestart();
-    else handleNewAgent(goal.trim());
+    // when showConfirmGoal is true, then trigger handleNewAgent
+    else handelConfirmGoal(true);
+    console.log('handlePlay', goal);
+
+    // else handleNewAgent(goal.trim());
   };
 
+  const handelConfirmGoal = (ConfirmGoal: boolean) => {
+    console.log('confirm goal', ConfirmGoal);
+    setShowConfirmGoal(ConfirmGoal);
+
+
+  }
+
+
   const handleNewAgent = (goal: string) => {
-    if (session === null) {
-      storeAgentDataInLocalStorage("", goal);
-      setShowSignInDialog(true);
-      return;
-    }
+
+    setShowConfirmGoal(false);
 
     if (agent && agentLifecycle == "paused") {
       agent?.run().catch(console.error);
@@ -83,12 +100,13 @@ const Home: NextPage = () => {
 
     const model = new DefaultAgentRunModel(goal.trim());
     const messageService = new MessageService(addMessage);
+    // TODO .... Back_end
     const agentApi = new AgentApi({
-      model_settings: toApiModelSettings(settings, session),
+      model_settings: toApiModelSettings(settings),
       goal: goal,
-      session: session,
       agentUtils: agentUtils,
     });
+    // use test
     const newAgent = new AutonomousAgent(
       model,
       messageService,
@@ -142,23 +160,31 @@ const Home: NextPage = () => {
         handleRestart();
       }}
     >
-      <HelpDialog />
 
-      <SignInDialog show={showSignInDialog} setOpen={setShowSignInDialog} />
       <div id="content" className="flex min-h-screen w-full items-center justify-center">
         <div
           id="layout"
-          className="relative flex h-screen w-full max-w-screen-md flex-col items-center justify-center gap-5 overflow-hidden p-2 py-10 sm:gap-3 sm:p-4"
+          className="relative flex h-screen w-full max-w-screen-xl flex-col items-center justify-center gap-5 overflow-hidden p-2 py-10 sm:gap-3 sm:p-4"
         >
-          {agent !== null ? (
+          {showConfirmGoal ? (
+            <ConfirmGoal
+              setNameInput={setNameInput}
+              setGoalInput={setGoalInput}
+              nameInput={nameInput}
+              goalInput={goalInput}
+              goals={goals} // Pass the current goals value
+              setGoals={setGoals} // 传递设置 goals 的函数
+              handleNewAgent={() => handleNewAgent(goalInput)}
+            />
+          ) : agent !== null ? (
             <Chat
               messages={messages}
               disableStartAgent={disableStartAgent}
               handlePlay={handlePlay}
               nameInput={nameInput}
               goalInput={goalInput}
-              setShowSignInDialog={setShowSignInDialog}
               setAgentRun={setAgentRun}
+              goals={goals} 
             />
           ) : (
             <Landing

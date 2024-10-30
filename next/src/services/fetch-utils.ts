@@ -33,13 +33,11 @@ export const post = async <T extends z.ZodTypeAny>(
   path: string,
   schema: T,
   body: unknown,
-  accessToken?: string,
-  organizationId?: string
-): Promise<z.infer<T>> => {
+): Promise<z.infer<T>> => {  
   const response = await fetch(`${env.NEXT_PUBLIC_BACKEND_URL}${path}`, {
     body: JSON.stringify(body),
     method: "POST",
-    headers: getHeaders(accessToken, organizationId),
+    headers: { "Content-Type": "application/json" }, 
   });
 
   if (!response.ok) {
@@ -49,6 +47,7 @@ export const post = async <T extends z.ZodTypeAny>(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return schema.parse(await response.json());
 };
+
 
 export const put = async <T extends z.ZodTypeAny>(
   path: string,

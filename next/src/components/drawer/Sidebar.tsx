@@ -20,7 +20,7 @@ const Sidebar = ({ show, children, side, className }: SidebarProps) => {
     <SidebarTransition show={show} side={side}>
       <nav
         className={clsx(
-          "flex flex-1 flex-col overflow-x-hidden bg-slate-3 p-4 ring-1 ring-white/10",
+          "flex flex-1 flex-col overflow-x-hidden bg-slate-13 p-4 ring-1 ring-white/10",
           className
         )}
       >

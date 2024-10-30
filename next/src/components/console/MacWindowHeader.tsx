@@ -106,13 +106,13 @@ export const MacWindowHeader = (props: HeaderProps) => {
       <PopIn delay={0.6}>
         <div className="h-3 w-3 rounded-full bg-green-500" />
       </PopIn>
-      <Expand
+      {/* <Expand
         delay={0.75}
         className="flex flex-grow font-mono text-xs font-bold text-gray-500 sm:ml-2 sm:text-sm"
       >
         {props.title}
-      </Expand>
-      <Menu icon={<CgExport size={15} />} items={exportOptions} />
+      </Expand> */}
+      {/* <Menu icon={<CgExport size={15} />} items={exportOptions} /> */}
     </div>
   );
 };

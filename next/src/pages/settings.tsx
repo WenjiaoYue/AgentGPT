@@ -82,8 +82,8 @@ const SettingsPage = () => {
           >
             <div>
               {" "}
-              <h1 className="text-4xl font-bold text-slate-12">Settings</h1>
-              <h2 className="text-xl font-light text-slate-12">Customize your agent experience</h2>
+              <h1 className="text-4xl font-bold text-slate-14">Settings</h1>
+              <h2 className="text-xl font-light text-slate-14">Customize your agent experience</h2>
             </div>
           </FadeIn>
           <FadeIn initialY={45} delay={0.1} className="mt-4 px-10">
@@ -138,7 +138,7 @@ const SettingsPage = () => {
 
             {!disableAdvancedSettings && (
               <div className="mt-4 flex flex-col ">
-                <h1 className="pb-4 text-xl font-bold text-slate-12">Advanced Settings</h1>
+                <h1 className="pb-4 text-xl font-bold text-slate-14">Advanced Settings</h1>
                 <div className="flex flex-col gap-4">
                   <Combo<LLMModel>
                     label="Model"
